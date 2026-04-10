@@ -1,57 +1,58 @@
-PROJECT: Decision Support System
-GROUP: 13
-SCOPE: Final Deadline (Assignments 1-22)
+# Business Intelligence System for Music Streaming
 
-================================================================================
-PROJECT STRUCTURE & CONTENT
-================================================================================
-This repository contains the complete implementation of the BI pipeline, organized
-by architectural layer:
+## Overview
+This project implements an end-to-end Business Intelligence system for a music streaming platform, starting from heterogeneous data sources (JSON and XML) and building a complete analytical pipeline.
 
-[00_data] - DATA STORAGE LAYER
-  Contains the dataset at various stages of the pipeline:
-  - Read the file README.txt you find inside this folder to understand the various files.
+The system is designed to support data processing, storage, and analysis through a structured architecture, enabling advanced reporting and insights.
 
-[01_src] - DATA PREPARATION (Python)
-  Source code for Data Profiling, Cleaning, and Integration.
-  These scripts are responsible for transforming raw semi-structured data 
-  into structured formats compliant with the target schema.
+---
 
-[02_sql] - RELATIONAL SCHEMA LAYER (T-SQL)
-  Contains the DDL scripts to generate the SQL Server Data Warehouse.
-  - A04_DWSchema.sql: Defines the idempotent schema (DROP/CREATE) for 
-    Fact Tables, Dimensions, and Bridge Tables.
+## Architecture
 
-[03_ssis] - ETL LAYER (Visual Studio / SSIS)
-  The Integration Services project ('Group13_SSIS_Project').
-  It manages the Control Flow and Data Flow tasks to populate the SQL database
-  from the source CSVs.
+The project is organized into the following layers:
 
-[04_mdx] - OLAP LAYER (Visual Studio / SSAS)
-  The Analysis Services Multidimensional project ('Group13_SSAS').
-  It defines the Cube structure (Assignment 14), including:
-  - Dimensions and Hierarchies.
-  - Measure Groups and Relationships.
-  This layer also includes the MDX queries developed to address
-  Assignments 15–19
+- **Data Preparation (Python)**  
+  Data profiling, cleaning, and integration to transform raw data into structured formats.
 
-[05_dashboards] – VISUAL ANALYTICS LAYER (Power BI)
-  This folder contains the Power BI dashboards built on top of the SSAS cube,
-  covering Assignments 20–22.
+- **Data Warehouse (SQL Server)**  
+  Design and implementation of a snowflake schema, including fact tables, dimensions, and bridge tables.
 
+- **ETL Pipelines (SSIS)**  
+  Automated data extraction, transformation, and loading processes.
 
+- **OLAP Cube (SSAS)**  
+  Multidimensional model supporting analytical queries and hierarchical navigation.
 
-================================================================================
-ARCHITECTURAL NOTE: CUBE DESIGN
-================================================================================
-The OLAP Cube (Assignment 14) features a hybrid measure design to support both 
-standard and weighted analytics:
+- **Visualization (Power BI)**  
+  Interactive dashboards built on top of the OLAP cube.
 
-1. Standard Measure Group ("FactSongStreams"): 
-   Linked via standard Star Schema relationships for general reporting.
+---
 
-2. Weighted Measure Group ("PseudoFact_Weighted"): 
-   A specialized measure group implemented via Data Source View (Named Query). 
-   This architectural component was designed to support complex weighted calculations 
-   (e.g., distinguishing Main vs. Featured artist impact: 0.8 vs 0.2 weight) 
-   without requiring runtime Many-to-Many logic in MDX queries.
+## Key Features
+
+- End-to-end BI pipeline  
+- Dimensional modeling (snowflake schema)  
+- ETL automation with SSIS  
+- Multidimensional analysis with SSAS and MDX  
+- Integration with Power BI for data visualization  
+
+---
+
+## Technologies
+
+- Python  
+- SQL Server (T-SQL)  
+- SSIS (ETL)  
+- SSAS (OLAP)  
+- MDX  
+- Power BI  
+
+---
+
+## Repository Structure
+00_data/ # Data at different stages of the pipeline
+01_src/ # Python scripts for data preparation
+02_sql/ # Data warehouse schema (T-SQL)
+03_ssis/ # ETL pipelines (SSIS project)
+04_mdx/ # OLAP cube and MDX queries
+05_dashboards/ # Power BI dashboards
