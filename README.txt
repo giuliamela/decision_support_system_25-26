@@ -11,19 +11,19 @@ The system is designed to support data processing, storage, and analysis through
 
 The project is organized into the following layers:
 
-- **Data Preparation (Python)**  
+- Data Preparation (Python)  
   Data profiling, cleaning, and integration to transform raw data into structured formats.
 
-- **Data Warehouse (SQL Server)**  
+- Data Warehouse (SQL Server)  
   Design and implementation of a snowflake schema, including fact tables, dimensions, and bridge tables.
 
-- **ETL Pipelines (SSIS)**  
+- ETL Pipelines (SSIS)  
   Automated data extraction, transformation, and loading processes.
 
-- **OLAP Cube (SSAS)**  
+- OLAP Cube (SSAS)  
   Multidimensional model supporting analytical queries and hierarchical navigation.
 
-- **Visualization (Power BI)**  
+- Visualization (Power BI)  
   Interactive dashboards built on top of the OLAP cube.
 
 ---
@@ -50,9 +50,16 @@ The project is organized into the following layers:
 ---
 
 ## Repository Structure
-00_data/ # Data at different stages of the pipeline
-01_src/ # Python scripts for data preparation
-02_sql/ # Data warehouse schema (T-SQL)
-03_ssis/ # ETL pipelines (SSIS project)
-04_mdx/ # OLAP cube and MDX queries
-05_dashboards/ # Power BI dashboards
+
+- 00_data → Data at different stages of the pipeline  
+- 01_src → Python scripts for data preparation  
+- 02_sql → Data warehouse schema (T-SQL)  
+- 03_ssis → ETL pipelines (SSIS project)  
+- 04_mdx → OLAP cube and MDX queries  
+- 05_dashboards → Power BI dashboards  
+
+---
+
+## Notes
+
+This project was developed as part of my Master's degree in Data Science and Business Informatics at the University of Pisa.
